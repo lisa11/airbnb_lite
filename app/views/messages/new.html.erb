@@ -24,7 +24,7 @@
           Guests
         </label>
 
-        <input type="text" id="guests_id" name="guests_id" placeholder="Guests" class="form-control" value="<%= @message.guests_id %>">
+        <%= select_tag(:guests_id, options_from_collection_for_select(Host.all, :id, :email, @message.guests_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for hosts_id -->
