@@ -1,0 +1,63 @@
+<!-- Validation failure messages -->
+<% if @availability.errors.any? %>
+  <% @availability.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Availability #<%= @availability.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_availability/<%= @availability.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listings_id -->
+      <div class="form-group">
+        <label for="listings_id" class="control-label">
+          Listings
+        </label>
+
+        <input type="text" id="listings_id" name="listings_id" placeholder="Listings" class="form-control" value="<%= @availability.listings_id %>">
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="<%= @availability.price %>">
+      </div>
+
+      <!-- Label and input for night -->
+      <div class="form-group">
+        <label for="night" class="control-label">
+          Night
+        </label>
+
+        <input type="text" id="night" name="night" placeholder="Night" class="form-control" value="<%= @availability.night %>">
+      </div>
+
+      <!-- Label and input for available -->
+      <div class="checkbox">
+        <label for="available">
+          <input type="checkbox" id="available" name="available" value="1" <%= "checked" if @availability.available %>>
+          Available
+        </label>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Availability
+      </button>
+      or
+      <a href="/availabilities/<%= @availability.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

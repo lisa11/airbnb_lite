@@ -1,0 +1,34 @@
+<div class="page-header">
+  <h1>
+    Availabilities
+    <a href="/availabilities/new" class="btn btn-lg btn-success">New Availability</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Listings</th>
+        <th>Price</th>
+        <th>Night</th>
+        <th>Available</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @availabilities.each do |availability| %>
+      <tr>
+        <td><%= availability.listings_id %></td>
+        <td><%= availability.price %></td>
+        <td><%= availability.night %></td>
+        <td><%= availability.available %></td>
+        <td>
+          <a href="/availabilities/<%= availability.id %>" class="btn btn-primary">Show</a>
+          <a href="/availabilities/<%= availability.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_availability/<%= availability.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

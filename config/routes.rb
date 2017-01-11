@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Availability resource:
+  # CREATE
+  get "/availabilities/new", :controller => "availabilities", :action => "new"
+  post "/create_availability", :controller => "availabilities", :action => "create"
+
+  # READ
+  get "/availabilities", :controller => "availabilities", :action => "index"
+  get "/availabilities/:id", :controller => "availabilities", :action => "show"
+
+  # UPDATE
+  get "/availabilities/:id/edit", :controller => "availabilities", :action => "edit"
+  post "/update_availability/:id", :controller => "availabilities", :action => "update"
+
+  # DELETE
+  get "/delete_availability/:id", :controller => "availabilities", :action => "destroy"
+  #------------------------------
+
   # Routes for the Photo resource:
   # CREATE
   get "/photos/new", :controller => "photos", :action => "new"
