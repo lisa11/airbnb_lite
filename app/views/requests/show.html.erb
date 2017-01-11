@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Request #<%= @request.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Availabilities</dt>
+      <dd><%= @request.availabilities_id %></dd>
+
+      <dt>Guests</dt>
+      <dd><%= @request.guests_id %></dd>
+
+      <dt>Guest introduction</dt>
+      <dd><%= @request.guest_introduction %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/requests" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/requests/<%= @request.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_request/<%= @request.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
