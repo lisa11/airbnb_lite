@@ -1,0 +1,136 @@
+<!-- Validation failure messages -->
+<% if @listing.errors.any? %>
+  <% @listing.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Listing #<%= @listing.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_listing/<%= @listing.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @listing.title %>">
+      </div>
+
+      <!-- Label and input for room_type -->
+      <div class="form-group">
+        <label for="room_type" class="control-label">
+          Room type
+        </label>
+
+        <input type="text" id="room_type" name="room_type" placeholder="Room type" class="form-control" value="<%= @listing.room_type %>">
+      </div>
+
+      <!-- Label and input for description -->
+      <div class="form-group">
+        <label for="description" class="control-label">
+          Description
+        </label>
+
+        <textarea id="description" name="description" placeholder="Description" class="form-control" rows="3"><%= @listing.description %></textarea>
+      </div>
+
+      <!-- Label and input for number_of_bathrooms -->
+      <div class="form-group">
+        <label for="number_of_bathrooms" class="control-label">
+          Number of bathrooms
+        </label>
+
+        <input type="text" id="number_of_bathrooms" name="number_of_bathrooms" placeholder="Number of bathrooms" class="form-control" value="<%= @listing.number_of_bathrooms %>">
+      </div>
+
+      <!-- Label and input for number_of_bedrooms -->
+      <div class="form-group">
+        <label for="number_of_bedrooms" class="control-label">
+          Number of bedrooms
+        </label>
+
+        <input type="text" id="number_of_bedrooms" name="number_of_bedrooms" placeholder="Number of bedrooms" class="form-control" value="<%= @listing.number_of_bedrooms %>">
+      </div>
+
+      <!-- Label and input for number_of_beds -->
+      <div class="form-group">
+        <label for="number_of_beds" class="control-label">
+          Number of beds
+        </label>
+
+        <input type="text" id="number_of_beds" name="number_of_beds" placeholder="Number of beds" class="form-control" value="<%= @listing.number_of_beds %>">
+      </div>
+
+      <!-- Label and input for host_id -->
+      <div class="form-group">
+        <label for="host_id" class="control-label">
+          Host
+        </label>
+
+        <input type="text" id="host_id" name="host_id" placeholder="Host" class="form-control" value="<%= @listing.host_id %>">
+      </div>
+
+      <!-- Label and input for max_occupants -->
+      <div class="form-group">
+        <label for="max_occupants" class="control-label">
+          Max occupants
+        </label>
+
+        <input type="text" id="max_occupants" name="max_occupants" placeholder="Max occupants" class="form-control" value="<%= @listing.max_occupants %>">
+      </div>
+
+      <!-- Label and input for city -->
+      <div class="form-group">
+        <label for="city" class="control-label">
+          City
+        </label>
+
+        <input type="text" id="city" name="city" placeholder="City" class="form-control" value="<%= @listing.city %>">
+      </div>
+
+      <!-- Label and input for neighborhood -->
+      <div class="form-group">
+        <label for="neighborhood" class="control-label">
+          Neighborhood
+        </label>
+
+        <input type="text" id="neighborhood" name="neighborhood" placeholder="Neighborhood" class="form-control" value="<%= @listing.neighborhood %>">
+      </div>
+
+      <!-- Label and input for policies -->
+      <div class="form-group">
+        <label for="policies" class="control-label">
+          Policies
+        </label>
+
+        <textarea id="policies" name="policies" placeholder="Policies" class="form-control" rows="3"><%= @listing.policies %></textarea>
+      </div>
+
+      <!-- Label and input for default_price_per_night -->
+      <div class="form-group">
+        <label for="default_price_per_night" class="control-label">
+          Default price per night
+        </label>
+
+        <input type="text" id="default_price_per_night" name="default_price_per_night" placeholder="Default price per night" class="form-control" value="<%= @listing.default_price_per_night %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Listing
+      </button>
+      or
+      <a href="/listings/<%= @listing.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
