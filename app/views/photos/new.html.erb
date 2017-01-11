@@ -24,7 +24,7 @@
           Listings
         </label>
 
-        <input type="text" id="listings_id" name="listings_id" placeholder="Listings" class="form-control" value="<%= @photo.listings_id %>">
+        <%= select_tag(:listings_id, options_from_collection_for_select(Listing.all, :id, :title, @photo.listings_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
