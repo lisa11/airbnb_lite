@@ -24,7 +24,7 @@
           Availabilities
         </label>
 
-        <input type="text" id="availabilities_id" name="availabilities_id" placeholder="Availabilities" class="form-control" value="<%= @request.availabilities_id %>">
+        <%= select_tag(:availabilities_id, options_from_collection_for_select(Availability.all, :id, :listings_id, @request.availabilities_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for guests_id -->
