@@ -18,7 +18,7 @@
       <% @bookings.each do |booking| %>
       <tr>
         <td><%= booking.request.availabilities_id %></td>
-        <td><%= booking.review_of_guest_id %></td>
+        <td><%= booking.review_of_guest.rating %></td>
         <td><%= booking.review_of_room_id %></td>
         <td>
           <a href="/bookings/<%= booking.id %>" class="btn btn-primary">Show</a>
