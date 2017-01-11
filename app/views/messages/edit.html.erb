@@ -33,7 +33,7 @@
           Hosts
         </label>
 
-        <input type="text" id="hosts_id" name="hosts_id" placeholder="Hosts" class="form-control" value="<%= @message.hosts_id %>">
+        <%= select_tag(:hosts_id, options_from_collection_for_select(Guest.all, :id, :created_at, @message.hosts_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for time -->
