@@ -1,6 +1,6 @@
 class GuestsController < ApplicationController
   def index
-    @guests = Guest.all
+    @guests = Guest.page(params[:page]).per(10)
   end
 
   def show

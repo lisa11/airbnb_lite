@@ -1,6 +1,6 @@
 class HostsController < ApplicationController
   def index
-    @hosts = Host.all
+    @hosts = Host.page(params[:page]).per(10)
   end
 
   def show

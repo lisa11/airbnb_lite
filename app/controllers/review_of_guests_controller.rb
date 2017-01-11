@@ -1,6 +1,6 @@
 class ReviewOfGuestsController < ApplicationController
   def index
-    @review_of_guests = ReviewOfGuest.all
+    @review_of_guests = ReviewOfGuest.page(params[:page]).per(10)
 
     render("review_of_guests/index.html.erb")
   end
