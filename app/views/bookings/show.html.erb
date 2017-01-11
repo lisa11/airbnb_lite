@@ -6,13 +6,31 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Request</dt>
-      <dd><%= @booking.request_id %></dd>
+      <dd>
+        <% if @booking.request.present? %>
+          <a href="/requests/<%= @booking.request_id %>">
+            <%= @booking.request.availabilities_id %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Review of guest</dt>
-      <dd><%= @booking.review_of_guest_id %></dd>
+      <dd>
+        <% if @booking.review_of_guest.present? %>
+          <a href="/review_of_guests/<%= @booking.review_of_guest_id %>">
+            <%= @booking.review_of_guest.rating %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Review of room</dt>
-      <dd><%= @booking.review_of_room_id %></dd>
+      <dd>
+        <% if @booking.review_of_room.present? %>
+          <a href="/review_of_rooms/<%= @booking.review_of_room_id %>">
+            <%= @booking.review_of_room.accuracy %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

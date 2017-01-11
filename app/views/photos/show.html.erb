@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Listings</dt>
-      <dd><%= @photo.listings_id %></dd>
+      <dd>
+        <% if @photo.listings.present? %>
+          <a href="/listings/<%= @photo.listings_id %>">
+            <%= @photo.listings.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

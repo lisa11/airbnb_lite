@@ -32,7 +32,13 @@
         <td><%= listing.number_of_bathrooms %></td>
         <td><%= listing.number_of_bedrooms %></td>
         <td><%= listing.number_of_beds %></td>
-        <td><%= listing.host.email %></td>
+        <td>
+          <% if listing.host.present? %>
+            <a href="/hosts/<%= listing.host.id %>">
+              <%= listing.host.email %>
+            </a>
+          <% end %>
+        </td>
         <td><%= listing.max_occupants %></td>
         <td><%= listing.city %></td>
         <td><%= listing.neighborhood %></td>

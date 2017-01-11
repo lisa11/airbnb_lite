@@ -24,7 +24,13 @@
       <dd><%= @listing.number_of_beds %></dd>
 
       <dt>Host</dt>
-      <dd><%= @listing.host_id %></dd>
+      <dd>
+        <% if @listing.host.present? %>
+          <a href="/hosts/<%= @listing.host_id %>">
+            <%= @listing.host.email %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Max occupants</dt>
       <dd><%= @listing.max_occupants %></dd>

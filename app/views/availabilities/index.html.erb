@@ -18,7 +18,13 @@
 
       <% @availabilities.each do |availability| %>
       <tr>
-        <td><%= availability.listings.title %></td>
+        <td>
+          <% if availability.listings.present? %>
+            <a href="/listings/<%= availability.listings.id %>">
+              <%= availability.listings.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= availability.price %></td>
         <td><%= availability.night %></td>
         <td><%= availability.available %></td>

@@ -17,8 +17,20 @@
 
       <% @requests.each do |request| %>
       <tr>
-        <td><%= request.availabilities.listings_id %></td>
-        <td><%= request.guest.created_at %></td>
+        <td>
+          <% if request.availabilities.present? %>
+            <a href="/availabilities/<%= request.availabilities.id %>">
+              <%= request.availabilities.listings_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if request.guest.present? %>
+            <a href="/guests/<%= request.guest.id %>">
+              <%= request.guest.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= request.guest_introduction %></td>
         <td>
           <a href="/requests/<%= request.id %>" class="btn btn-primary">Show</a>
