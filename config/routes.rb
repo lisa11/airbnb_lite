@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :hosts
+  # Routes for the Host resource:
+  # READ
+  get "/hosts", :controller => "hosts", :action => "index"
+  get "/hosts/:id", :controller => "hosts", :action => "show"
+
+
   devise_for :guests
   # Routes for the Guest resource:
   # READ
