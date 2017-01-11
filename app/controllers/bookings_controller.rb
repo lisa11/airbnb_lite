@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = Booking.page(params[:page]).per(10)
+    @q = Booking.ransack(params[:q])
+    @bookings = @q.result(:distinct => true).includes(:request, :review_of_guest, :review_of_room).page(params[:page]).per(10)
 
     render("bookings/index.html.erb")
   end
