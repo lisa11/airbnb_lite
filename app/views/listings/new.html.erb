@@ -78,7 +78,7 @@
           Host
         </label>
 
-        <input type="text" id="host_id" name="host_id" placeholder="Host" class="form-control" value="<%= @listing.host_id %>">
+        <%= select_tag(:host_id, options_from_collection_for_select(Host.all, :id, :email, @listing.host_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for max_occupants -->
