@@ -24,7 +24,7 @@
           Request
         </label>
 
-        <input type="text" id="request_id" name="request_id" placeholder="Request" class="form-control" value="<%= @booking.request_id %>">
+        <%= select_tag(:request_id, options_from_collection_for_select(Request.all, :id, :availabilities_id, @booking.request_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for review_of_guest_id -->
