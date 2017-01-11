@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @message.errors.any? %>
+  <% @message.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Message</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_message" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for guests_id -->
+      <div class="form-group">
+        <label for="guests_id" class="control-label">
+          Guests
+        </label>
+
+        <input type="text" id="guests_id" name="guests_id" placeholder="Guests" class="form-control" value="<%= @message.guests_id %>">
+      </div>
+
+      <!-- Label and input for hosts_id -->
+      <div class="form-group">
+        <label for="hosts_id" class="control-label">
+          Hosts
+        </label>
+
+        <input type="text" id="hosts_id" name="hosts_id" placeholder="Hosts" class="form-control" value="<%= @message.hosts_id %>">
+      </div>
+
+      <!-- Label and input for time -->
+      <div class="form-group">
+        <label for="time" class="control-label">
+          Time
+        </label>
+
+        <input type="text" id="time" name="time" placeholder="Time" class="form-control" value="<%= @message.time %>">
+      </div>
+
+      <!-- Label and input for date -->
+      <div class="form-group">
+        <label for="date" class="control-label">
+          Date
+        </label>
+
+        <input type="text" id="date" name="date" placeholder="Date" class="form-control" value="<%= @message.date %>">
+      </div>
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <textarea id="content" name="content" placeholder="Content" class="form-control" rows="3"><%= @message.content %></textarea>
+      </div>
+
+      <button class="btn btn-success">
+        Create Message
+      </button>
+      or
+      <a href="/messages">Cancel</a>
+    </form>
+  </div>
+</div>
