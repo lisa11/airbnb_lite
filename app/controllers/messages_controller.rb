@@ -50,8 +50,6 @@ class MessagesController < ApplicationController
 
   def update
     @message = Message.find(params[:id])
-
-    @message.guests_id = params[:guests_id]
     @message.hosts_id = params[:hosts_id]
     @message.time = params[:time]
     @message.date = params[:date]

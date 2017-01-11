@@ -28,13 +28,7 @@
       </div>
 
       <!-- Label and input for hosts_id -->
-      <div class="form-group">
-        <label for="hosts_id" class="control-label">
-          Hosts
-        </label>
-
-        <%= select_tag(:hosts_id, options_from_collection_for_select(Guest.all, :id, :created_at, @message.hosts_id), :class => "form-control") %>
-      </div>
+      <input type="hidden" name="hosts_id" value="<%= current_user.id %>">
 
       <!-- Label and input for time -->
       <div class="form-group">
