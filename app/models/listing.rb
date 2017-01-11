@@ -1,6 +1,10 @@
 class Listing < ApplicationRecord
   # Direct associations
 
+  has_many   :bookmarks,
+             :foreign_key => "listings_id",
+             :dependent => :destroy
+
   has_many   :availabilities,
              :foreign_key => "listings_id",
              :dependent => :destroy
