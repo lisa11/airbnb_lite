@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "listings#index"
   # Routes for the Review_of_room resource:
   # CREATE
   get "/review_of_rooms/new", :controller => "review_of_rooms", :action => "new"
