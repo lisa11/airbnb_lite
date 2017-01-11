@@ -33,7 +33,7 @@
           Review of guest
         </label>
 
-        <input type="text" id="review_of_guest_id" name="review_of_guest_id" placeholder="Review of guest" class="form-control" value="<%= @booking.review_of_guest_id %>">
+        <%= select_tag(:review_of_guest_id, options_from_collection_for_select(ReviewOfGuest.all, :id, :rating, @booking.review_of_guest_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for review_of_room_id -->
