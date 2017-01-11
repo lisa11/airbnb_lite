@@ -6,6 +6,7 @@ class AvailabilitiesController < ApplicationController
   end
 
   def show
+    @request = Request.new
     @availability = Availability.find(params[:id])
 
     render("availabilities/show.html.erb")

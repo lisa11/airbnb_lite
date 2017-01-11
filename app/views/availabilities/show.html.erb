@@ -60,6 +60,44 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_request" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for availabilities_id -->
+      <div class="form-group">
+        <label for="availabilities_id" class="control-label">
+          Availabilities
+        </label>
+
+        <%= select_tag(:availabilities_id, options_from_collection_for_select(Availability.all, :id, :listings_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for guests_id -->
+      <div class="form-group">
+        <label for="guests_id" class="control-label">
+          Guests
+        </label>
+
+        <%= select_tag(:guests_id, options_from_collection_for_select(Guest.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for guest_introduction -->
+      <div class="form-group">
+        <label for="guest_introduction" class="control-label">
+          Guest introduction
+        </label>
+
+        <textarea id="guest_introduction" name="guest_introduction" placeholder="Guest introduction" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Request
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

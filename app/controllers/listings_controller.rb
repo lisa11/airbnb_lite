@@ -6,6 +6,9 @@ class ListingsController < ApplicationController
   end
 
   def show
+    @bookmark = Bookmark.new
+    @availability = Availability.new
+    @photo = Photo.new
     @listing = Listing.find(params[:id])
 
     render("listings/show.html.erb")

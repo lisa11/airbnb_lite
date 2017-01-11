@@ -84,6 +84,26 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_photo" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listings_id -->
+      <div class="form-group">
+        <label for="listings_id" class="control-label">
+          Listings
+        </label>
+
+        <%= select_tag(:listings_id, options_from_collection_for_select(Listing.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Photo
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -115,6 +135,52 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_availability" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listings_id -->
+      <div class="form-group">
+        <label for="listings_id" class="control-label">
+          Listings
+        </label>
+
+        <%= select_tag(:listings_id, options_from_collection_for_select(Listing.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for price -->
+      <div class="form-group">
+        <label for="price" class="control-label">
+          Price
+        </label>
+
+        <input type="text" id="price" name="price" placeholder="Price" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for night -->
+      <div class="form-group">
+        <label for="night" class="control-label">
+          Night
+        </label>
+
+        <input type="text" id="night" name="night" placeholder="Night" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for available -->
+      <div class="checkbox">
+        <label for="available">
+          <input type="checkbox" id="available" name="available" value="1" <%= "checked" if @availability.available %>>
+          Available
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Availability
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -146,6 +212,35 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_bookmark" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for listings_id -->
+      <div class="form-group">
+        <label for="listings_id" class="control-label">
+          Listings
+        </label>
+
+        <%= select_tag(:listings_id, options_from_collection_for_select(Listing.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for guests_id -->
+      <div class="form-group">
+        <label for="guests_id" class="control-label">
+          Guests
+        </label>
+
+        <%= select_tag(:guests_id, options_from_collection_for_select(Guest.all, :id, :created_at), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Bookmark
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
