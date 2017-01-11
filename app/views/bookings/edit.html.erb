@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @booking.errors.any? %>
+  <% @booking.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Booking #<%= @booking.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_booking/<%= @booking.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for request_id -->
+      <div class="form-group">
+        <label for="request_id" class="control-label">
+          Request
+        </label>
+
+        <input type="text" id="request_id" name="request_id" placeholder="Request" class="form-control" value="<%= @booking.request_id %>">
+      </div>
+
+      <!-- Label and input for review_of_guest_id -->
+      <div class="form-group">
+        <label for="review_of_guest_id" class="control-label">
+          Review of guest
+        </label>
+
+        <input type="text" id="review_of_guest_id" name="review_of_guest_id" placeholder="Review of guest" class="form-control" value="<%= @booking.review_of_guest_id %>">
+      </div>
+
+      <!-- Label and input for review_of_room_id -->
+      <div class="form-group">
+        <label for="review_of_room_id" class="control-label">
+          Review of room
+        </label>
+
+        <input type="text" id="review_of_room_id" name="review_of_room_id" placeholder="Review of room" class="form-control" value="<%= @booking.review_of_room_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Booking
+      </button>
+      or
+      <a href="/bookings/<%= @booking.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

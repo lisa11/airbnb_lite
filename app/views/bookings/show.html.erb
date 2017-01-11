@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Booking #<%= @booking.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Request</dt>
+      <dd><%= @booking.request_id %></dd>
+
+      <dt>Review of guest</dt>
+      <dd><%= @booking.review_of_guest_id %></dd>
+
+      <dt>Review of room</dt>
+      <dd><%= @booking.review_of_room_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/bookings" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/bookings/<%= @booking.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_booking/<%= @booking.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
