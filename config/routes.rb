@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Review_of_guest resource:
+  # CREATE
+  get "/review_of_guests/new", :controller => "review_of_guests", :action => "new"
+  post "/create_review_of_guest", :controller => "review_of_guests", :action => "create"
+
+  # READ
+  get "/review_of_guests", :controller => "review_of_guests", :action => "index"
+  get "/review_of_guests/:id", :controller => "review_of_guests", :action => "show"
+
+  # UPDATE
+  get "/review_of_guests/:id/edit", :controller => "review_of_guests", :action => "edit"
+  post "/update_review_of_guest/:id", :controller => "review_of_guests", :action => "update"
+
+  # DELETE
+  get "/delete_review_of_guest/:id", :controller => "review_of_guests", :action => "destroy"
+  #------------------------------
+
   # Routes for the Bookmark resource:
   # CREATE
   get "/bookmarks/new", :controller => "bookmarks", :action => "new"
