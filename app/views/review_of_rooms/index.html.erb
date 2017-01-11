@@ -1,0 +1,42 @@
+<div class="page-header">
+  <h1>
+    Review of rooms
+    <a href="/review_of_rooms/new" class="btn btn-lg btn-success">New Review of room</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Accuracy</th>
+        <th>Communication</th>
+        <th>Cleanliness</th>
+        <th>Location</th>
+        <th>Check in</th>
+        <th>Value</th>
+        <th>Content</th>
+        <th>Guests</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @review_of_rooms.each do |review_of_room| %>
+      <tr>
+        <td><%= review_of_room.accuracy %></td>
+        <td><%= review_of_room.communication %></td>
+        <td><%= review_of_room.cleanliness %></td>
+        <td><%= review_of_room.location %></td>
+        <td><%= review_of_room.check_in %></td>
+        <td><%= review_of_room.value %></td>
+        <td><%= review_of_room.content %></td>
+        <td><%= review_of_room.guests_id %></td>
+        <td>
+          <a href="/review_of_rooms/<%= review_of_room.id %>" class="btn btn-primary">Show</a>
+          <a href="/review_of_rooms/<%= review_of_room.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_review_of_room/<%= review_of_room.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

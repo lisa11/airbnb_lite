@@ -1,0 +1,100 @@
+<!-- Validation failure messages -->
+<% if @review_of_room.errors.any? %>
+  <% @review_of_room.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Review Of Room #<%= @review_of_room.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_review_of_room/<%= @review_of_room.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for accuracy -->
+      <div class="form-group">
+        <label for="accuracy" class="control-label">
+          Accuracy
+        </label>
+
+        <input type="text" id="accuracy" name="accuracy" placeholder="Accuracy" class="form-control" value="<%= @review_of_room.accuracy %>">
+      </div>
+
+      <!-- Label and input for communication -->
+      <div class="form-group">
+        <label for="communication" class="control-label">
+          Communication
+        </label>
+
+        <input type="text" id="communication" name="communication" placeholder="Communication" class="form-control" value="<%= @review_of_room.communication %>">
+      </div>
+
+      <!-- Label and input for cleanliness -->
+      <div class="form-group">
+        <label for="cleanliness" class="control-label">
+          Cleanliness
+        </label>
+
+        <input type="text" id="cleanliness" name="cleanliness" placeholder="Cleanliness" class="form-control" value="<%= @review_of_room.cleanliness %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @review_of_room.location %>">
+      </div>
+
+      <!-- Label and input for check_in -->
+      <div class="form-group">
+        <label for="check_in" class="control-label">
+          Check in
+        </label>
+
+        <input type="text" id="check_in" name="check_in" placeholder="Check in" class="form-control" value="<%= @review_of_room.check_in %>">
+      </div>
+
+      <!-- Label and input for value -->
+      <div class="form-group">
+        <label for="value" class="control-label">
+          Value
+        </label>
+
+        <input type="text" id="value" name="value" placeholder="Value" class="form-control" value="<%= @review_of_room.value %>">
+      </div>
+
+      <!-- Label and input for content -->
+      <div class="form-group">
+        <label for="content" class="control-label">
+          Content
+        </label>
+
+        <textarea id="content" name="content" placeholder="Content" class="form-control" rows="3"><%= @review_of_room.content %></textarea>
+      </div>
+
+      <!-- Label and input for guests_id -->
+      <div class="form-group">
+        <label for="guests_id" class="control-label">
+          Guests
+        </label>
+
+        <input type="text" id="guests_id" name="guests_id" placeholder="Guests" class="form-control" value="<%= @review_of_room.guests_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Review Of Room
+      </button>
+      or
+      <a href="/review_of_rooms/<%= @review_of_room.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
